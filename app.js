@@ -1,6 +1,5 @@
 let menuList = document.getElementById("menu-list");
-
-
+const searchInput = document.getElementById("search-input")
 
 const menu = [
   { id: 1, title: "Soup of the day", category: "starters", price: "$5", description: "Freshly made soup with seasonal ingredients", img: "https://images.pexels.com/photos/1731535/pexels-photo-1731535.jpeg?auto=compress&cs=tinysrgb&w=400" },
@@ -18,15 +17,12 @@ const menu = [
   { id: 13, title: "Green Tea", category: "beverages", price: "$3", description: "Traditional green tea with antioxidants", img: "https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3JlZW4lMjB0ZWF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" },
 ];
 
-
-
-
 const displayMenu = (menuItem) => {
   menuList.innerHTML = "";
   menuItem.map((item) => {
     return (
       menuList.innerHTML +=
-      `<div class="card col-md-3 col-sm-6 m-2">
+      `<div class="card col-sm-6 col-md-3 m-3">
           <img src="${item.img}" class="card-img-top" alt="${item.title}">
           <div class="card-body">
             <h5 class="card-title">${item.title}</h5>
@@ -38,6 +34,38 @@ const displayMenu = (menuItem) => {
     )
   })
 }
+
+
+// Filtering
+const datafilter = (val) => {
+  
+  let filteredMenu = menu.filter((item) => {
+    return (
+      item.category.toLowerCase().includes(val)
+    )
+  })
+
+  if (val == "all") {
+    displayMenu(menu)
+  } else {
+    displayMenu(filteredMenu);
+  }
+}
+
+const displaySearchMenu = () => {
+  console.log("displaySearchMenu called")
+  const searchQuery = searchInput.value.toLowerCase();
+  console.log(searchQuery);
+  let filteredMenuList = menu.filter((item) => {
+    return(
+      item.category.toLowerCase().includes(searchQuery)
+    )
+  })
+
+  console.log(filteredMenuList)
+  displayMenu(filteredMenuList)
+}
+searchInput.addEventListener('input', displaySearchMenu);
 
 window.onload = () => {
   displayMenu(menu);

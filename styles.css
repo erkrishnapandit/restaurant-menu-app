@@ -5,3 +5,8 @@
 @media (min-width: 992px) {
     
 }
+
+.video-container video{
+    width: 50px;
+    height: 10px;
+}

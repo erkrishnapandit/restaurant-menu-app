@@ -9,26 +9,33 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body>
+<body class = "bg-primary">
     <!-- Navbar -->
     <nav class="navbar d-flex ">
         <!-- Navbar toggler for mobile view -->
         <!-- <button class="navbar-toggler"></button> -->
 
         <!-- Navigation links -->
-        <a href="#" class="nav-link nav m-1 p-2 fw-bold fs-3">Grand Inn</a>
+        <a href="#" class="nav-link m-1 p-2 fw-bold fs-3">Restaurant</a>
         <input type="text" class="flex-grow-1 rounded-pill px-3 border outline-0" id="search-input" placeholder="Search Item Here">
-        <a href="#" class="nav-link m-1 border p-1 bg-body-tertiary fs-6 rounded" data-filter="all">All</a>
+        <!-- <a href="#" class="nav-link m-1 border p-1 bg-body-tertiary fs-6 rounded" data-filter="all">All</a>
         <a href="#" class="nav-link m-1 border p-1 bg-body-tertiary fs-6 rounded" data-filter="starters">starters</a>
         <a href="#" class="nav-link m-1 border p-1 bg-body-tertiary fs-6 rounded" data-filter="mains">Mains</a>
         <a href="#" class="nav-link m-1 border p-1 bg-body-tertiary fs-6 rounded" data-filter="degerts">Degerts</a>
-        <a href="#" class="nav-link m-1 border p-1 bg-body-tertiary fs-6 rounded" data-filter="bevrages">Bevrages</a>
+        <a href="#" class="nav-link m-1 border p-1 bg-body-tertiary fs-6 rounded" data-filter="bevrages">Bevrages</a> -->
 
+        <ul class="list-group list-group-horizontal" >
+            <li class="list-group-item p-1 m-1 border rounded bg-light"><button class="border-0 bg-light" onclick="datafilter('all')"> All</button></li>
+            <li class="list-group-item p-1 m-1 border rounded bg-light"><button class="border-0 bg-light" onclick="datafilter('starters')"> Starter</button></li>
+            <li class="list-group-item p-1 m-1 border rounded bg-light"><button class="border-0 bg-light" onclick="datafilter('mains')"> Mains</button></li>
+            <li class="list-group-item p-1 m-1 border rounded bg-light"><button class="border-0 bg-light" onclick="datafilter('beverages')"> Bevrages</button></li>
+            <li class="list-group-item p-1 m-1 border rounded bg-light"><button class="border-0 bg-light" onclick="datafilter('desserts')"> Degerts</button></li>
+        </ul>
     </nav>
 
     <main>
-        <header class="container">
-            <video src="https://files.codingninjas.in/restaurant-1706081051.mp4" width="100%" autoplay loop></video>
+        <header class="container d-flex justify-content-center video-container">
+            <video src="https://files.codingninjas.in/restaurant-1706081051.mp4" width="90%" autoplay loop></video>
         </header>
 
         <div id="menu-list" class="menu-item d-flex flex-wrap justify-content-center"></div>
